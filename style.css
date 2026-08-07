@@ -3,6 +3,7 @@
     padding: 0;
     background-color: #FFF8E7;
     font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
 }
 
 nav{
@@ -16,7 +17,7 @@ nav{
 }
 
 nav h1{
-    font-size: 24px;
+    font-size: 35px;
     color: #333;
     background-color: #F5D6A0;
     font-family: 'Arial', sans-serif;
@@ -26,7 +27,7 @@ nav h1{
 nav ul{
     list-style: none;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     background-color: #F5D6A0;
 }
 
@@ -51,7 +52,6 @@ nav ul li a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #f5aa29;
 }
 
@@ -108,7 +108,129 @@ nav ul li a:hover{
     margin-bottom: 20px;
 }
 
-.about h3{
+.about-text h3{
     font-size: 25px;
     margin-bottom: 20px;
 }
+
+.about p{
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.about ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.about ul li{
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card{
+    padding: 20px;
+    color: rgb(223, 153, 24);
+    border-color: rgb(223, 153, 24);
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+}
+
+.menu{
+    padding: 20px;
+    text-align: center;
+    display:grid;
+}
+
+.menu h2{
+    font-size: 45px;
+    margin: 50px auto;
+    padding: 20px 60px;
+    background-color: #f0bb40;
+    border-radius: 10px;
+    width: fit-content;
+    align-items: center;
+}
+
+.menu p{
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.menu-container{
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 60px;
+    width: 70%;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.menu-item{
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.menu-item:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-item img{
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.menu-item p{
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.menu-item h3{
+    font-size: 20px;
+    margin: 10px;
+}
+
+.menu-item h4{
+    font-size: 18px;
+    margin: 10px;
+}
+
+.menu-item button{
+    padding: 10px 20px;
+    background-color: #1e1d1c;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.menu-item button:hover{
+    background-color: #f7ecb8;
+    color: #1e1d1c;
+    transition: 0.3s;
+}
+
