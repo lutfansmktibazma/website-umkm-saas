@@ -8,55 +8,66 @@
 
 }
 
-nav{
+nav {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #f5d6a0cb;
+    padding: 15px 8%;
+    background-color: #f5d6a0;
     position: sticky;
     top: 0;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-nav h1{
-    font-size: 35px;
-    color: #333;    
-    font-family: 'Arial', sans-serif;
+.nav-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+}
+
+nav h1 {
+    font-size: 28px;
+    color: #333;
     font-weight: bold;
     user-select: none;
-    transition: 0.3s;   
-}
-nav h1:hover{
-    color: #f5aa29;
-    transition: 0.3s;
+    transition: color 0.3s ease;
 }
 
-nav ul{
+nav h1:hover {
+    color: #e28d13;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+.nav-menu {
     list-style: none;
     display: flex;
-    gap: 20px;
-
+    gap: 30px;
+    align-items: center;
 }
 
-nav ul li {
-
-}
-
-nav ul li a{
+.nav-menu li a {
     text-decoration: none;
     color: #333;
-    font-size: 18px;
-
-    transition: 0.3s;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
-nav ul li a:hover{
-    color: #f5aa29;
-    border-radius: 5px;
-    transition: 0.3s;
-
+.nav-menu li a:hover {
+    color: #1e1d1c;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .home{
@@ -281,43 +292,46 @@ nav ul li a:hover{
     transition: 0.3s;
 }
 
-.galery{
-    width: 70%;
-    margin: 0 auto;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
+/* --- GALLERY SECTION --- */
+.gallery {
+    width: 80%;
+    margin: 60px auto;
+    padding: 20px 0;
     text-align: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: 50px;
 }
 
-.galery h2{
-    color:  #f0bb40 ;   
-    font-size: 75px;
-    margin-bottom: 20px;
-    
+.gallery h2 {
+    color: #f0bb40;   
+    font-size: 60px;
+    margin-bottom: 40px;
 }
-.gallery-container{
+
+.gallery-container {
     display: grid;
-    grid-template-columns: repeat(3, 0.3fr);
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
     width: 100%;
-    gap: 20px;
-    border-radius: 10px;
-    height: 65%;
 }
 
-.gallery-item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
+.gallery-item {
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
     overflow: hidden;
-    border-radius: 20px;
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Menjaga rasio gambar tanpa terdistorsi */
+    display: block;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -407,25 +421,47 @@ flex-direction: column;
         border: none;
     }
 
-
     nav {
-        flex-direction: column; 
-        gap: 15px; 
-        text-align: center;
-        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 20px;
     }
 
-    nav h1 {
-        font-size: 25px;
+    .nav-brand {
+        width: 100%;
     }
 
-    nav ul {
-        flex-direction: column; 
+    .nav-toggle {
+        display: block; /* Menampilkan tombol hamburger di HP */
+    }
+
+    .nav-menu {
+        display: none; /* Sembunyikan menu secara default di HP */
+        flex-direction: column;
+        width: 100%;
         gap: 10px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    nav ul li a {
-        font-size: 16px; 
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .nav-menu.show {
+        display: flex 
     }
 
    
@@ -512,6 +548,7 @@ flex-direction: column;
     .menu-item img {
         width: 100%; 
         height: auto;
+
     }
 
     .menu-item h3 {
@@ -522,34 +559,23 @@ flex-direction: column;
         font-size: 16px;
     }
 
-    .galery {
-        width: 95%; 
-        height: auto; 
-        margin-top: 30px;
-        padding: 0 10px; 
+    .gallery {
+        width: 90%;
+        margin: 40px auto;
     }
 
-    .galery h2 {
-        font-size: 40px; 
-        margin-bottom: 20px; 
+    .gallery h2 {
+        font-size: 38px;
+        margin-bottom: 25px;
     }
 
     .gallery-container {
-        height: auto; 
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-        gap: 15px; 
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet/HP besar */
+        gap: 15px;
     }
 
     .gallery-item {
-        width: 100%; 
-        height: 150px; 
-    }
-
-    .gallery-item img {
-        width: 100%; 
-        height: 100%; 
-        object-fit: cover; 
-        border-radius: 10px; 
+        height: 180px;
     }
 
     .contact {
